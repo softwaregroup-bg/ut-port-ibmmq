@@ -4,7 +4,7 @@
   "main": "index.js",
   "dependencies": {
     "ibmmq": "0.9.10",
-    "readable-stream": "3.3.3",
+    "readable-stream": "2.3.3",
     "ut-port-tcp": "^7.1.0",
     "uuid": "3.3.2"
   },
