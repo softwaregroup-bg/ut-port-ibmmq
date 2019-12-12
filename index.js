@@ -6,18 +6,21 @@ module.exports = function(...params) {
     return class IbmMqPort extends TcpPort(...params) {
         get defaults() {
             return function defaults() { // return function, as we need to access port.log
+                const port = this;
                 return {
                     socketTimeOut: 0,
                     maxReceiveBuffer: -1,
                     connection: {},
                     client: ibmMqConnect(this.log),
                     format: {
-                        codec: function({prefix}) {
+                        codec: function({prefix, hook}) {
                             return {
                                 encode: (object, $meta, context, log) => {
-                                    const trace = Buffer.alloc(24, (prefix || '').padEnd(24));
-                                    uuid({}, trace.slice(8));
-                                    $meta.trace = trace.toString('hex');
+                                    if ($meta.mtid === 'request') {
+                                        const trace = Buffer.alloc(24, (prefix || '').padEnd(24));
+                                        uuid({}, trace.slice(8));
+                                        $meta.trace = trace.toString('hex');
+                                    };
                                     const message = [object, {trace: $meta.trace, mtid: $meta.mtid}];
                                     if (log && log.trace) {
                                         log.trace({
@@ -39,6 +42,7 @@ module.exports = function(...params) {
                                     const [msg, {mtid, trace}] = message;
                                     $meta.mtid = mtid;
                                     $meta.trace = trace;
+                                    $meta.method = port.config.id + 'In.message';
                                     return msg;
                                 }
                             };

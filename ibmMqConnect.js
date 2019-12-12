@@ -9,6 +9,7 @@ const MQTYPES = {
 const UTTYPES = {
     notification: MQC.MQMT_DATAGRAM,
     request: MQC.MQMT_REQUEST,
+    error: MQC.MQMT_REPLY,
     response: MQC.MQMT_REPLY
 };
 
@@ -123,7 +124,7 @@ class IbmMqStream extends Duplex {
                 this.push([md.Format === 'MQSTR' ? buf.toString() : buf, {
                     id: md.MsgId.toString('hex'),
                     trace: md.CorrelId.toString('hex'),
-                    mtid: md.CorrelId.find(Boolean) ? 'response' : (MQTYPES[md.MsgType] || 'error')
+                    mtid: (md.MsgType === MQC.MQMT_DATAGRAM && md.CorrelId.find(Boolean)) ? 'response' : (MQTYPES[md.MsgType] || 'error')
                 }]);
             }
         });
