@@ -1,6 +1,6 @@
 {
   "name": "ut-port-ibmmq",
-  "version": "7.1.0",
+  "version": "7.1.1",
   "main": "index.js",
   "dependencies": {
     "ibmmq": "0.9.10",
