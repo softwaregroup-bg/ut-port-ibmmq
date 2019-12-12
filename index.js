@@ -42,7 +42,7 @@ module.exports = function(...params) {
                                     const [msg, {mtid, trace}] = message;
                                     $meta.mtid = mtid;
                                     $meta.trace = trace;
-                                    $meta.method = port.config.id + 'In.message';
+                                    $meta.method = (port.config.namespace || this.config.id) + 'In.message';
                                     return msg;
                                 }
                             };
