@@ -42,7 +42,9 @@ module.exports = function(...params) {
                                     const [msg, {mtid, trace}] = message;
                                     $meta.mtid = mtid;
                                     $meta.trace = trace;
-                                    $meta.method = (port.config.namespace || this.config.id) + 'In.message';
+                                    if (mtid === 'request' || mtid === 'notification') { // responses and errors will get their method from matched request
+                                        $meta.method = (port.config.namespace || this.config.id) + 'In.message';
+                                    }
                                     return msg;
                                 }
                             };
