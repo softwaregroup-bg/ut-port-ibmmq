@@ -1,3 +1,12 @@
+## [7.1.2](https://github.com/softwaregroup-bg/ut-port-ibmmq/compare/v7.1.1...v7.1.2) (2019-12-13)
+
+
+### Bug Fixes
+
+* keep request's method name ([f137b99](https://github.com/softwaregroup-bg/ut-port-ibmmq/commit/f137b99))
+
+
+
 ## [7.1.1](https://github.com/softwaregroup-bg/ut-port-ibmmq/compare/v7.1.0...v7.1.1) (2019-12-12)
 
 
