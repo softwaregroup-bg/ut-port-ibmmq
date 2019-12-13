@@ -1,4 +1,4 @@
-# **IBM MQ Port:** `ut-port-mail`
+# **IBM MQ Port:** `ut-port-ibmmq`
 
 The IBM MQ port establishes a connection and then opens
 one or two queues for sending and receiving messages.
