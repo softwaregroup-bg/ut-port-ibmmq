@@ -1,3 +1,7 @@
+## [7.1.5](https://github.com/softwaregroup-bg/ut-port-ibmmq/compare/v7.1.4...v7.1.5) (2019-12-17)
+
+
+
 ## [7.1.4](https://github.com/softwaregroup-bg/ut-port-ibmmq/compare/v7.1.3...v7.1.4) (2019-12-13)
 
 
