@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "tap": "^12.6.2",
-    "ut-tools": "^6.29.6"
+    "ut-tools": "^6.29.11"
   },
   "peerDependencies": {},
   "scripts": {
